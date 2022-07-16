@@ -21,11 +21,11 @@ public class Application {
 	  public OpenAPI springShopOpenAPI() {
 	      return new OpenAPI()
 	              .info(new Info().title("SpringShop API")
-	              .description("Spring shop sample application")
+	              .description("Shop24 WebService Application")
 	              .version("v0.0.1")
 	              .license(new License().name("Apache 2.0").url("http://springdoc.org")))
 	              .externalDocs(new ExternalDocumentation()
 	              .description("Shop24 Documentation")
-	              .url("https://springshop.wiki.github.org/docs"));
+	              .url("http://localhost:8000/v3/api-docs"));
 	  }
 }
