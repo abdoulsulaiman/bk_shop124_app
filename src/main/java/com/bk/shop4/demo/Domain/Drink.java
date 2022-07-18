@@ -30,7 +30,7 @@ public class Drink extends Metadata implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String Name;
+	private String name;
 	private String description;
 	private double price;
 	private int quantity;
@@ -45,11 +45,12 @@ public class Drink extends Metadata implements Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 	public String getDescription() {
 		return description;

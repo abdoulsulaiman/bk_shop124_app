@@ -16,6 +16,7 @@ import com.bk.shop4.demo.Domain.ClientOrder;
 import com.bk.shop4.demo.Domain.Drink;
 import com.bk.shop4.demo.Domain.DrinkAvaibility;
 import com.bk.shop4.demo.Domain.OrderItem;
+import com.bk.shop4.demo.Exception.ObjectNotFoundException;
 import com.bk.shop4.demo.InnerDomain.InnerConsumedDrink;
 import com.bk.shop4.demo.InnerDomain.InnerDrinkData;
 import com.bk.shop4.demo.Repository.CargoRepo;
@@ -24,7 +25,6 @@ import com.bk.shop4.demo.Repository.ClientRepo;
 import com.bk.shop4.demo.Repository.DrinkRepo;
 import com.bk.shop4.demo.Repository.OrderItemRepo;
 import com.bk.shop4.demo.Service.IDrinkService;
-import com.bk.shop4.demo.Utility.ObjectNotFoundException;
 
 
 
@@ -185,6 +185,12 @@ public class DrinkServiceImpl implements IDrinkService {
 			map.put("cargoes", cargo_list);
 			map.put("drinks", drepo.findByDeletedStatus(false));
 			return map;
+		}
+
+		@Override
+		public Drink getDrinkByName(String name) {
+			// TODO Auto-generated method stub
+			return drepo.findByName(name);
 		}
 
 

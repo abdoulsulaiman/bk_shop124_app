@@ -21,6 +21,7 @@ import com.bk.shop4.demo.Domain.DrinkAvaibility;
 import com.bk.shop4.demo.Domain.OrderItem;
 import com.bk.shop4.demo.Domain.OrderStatus;
 import com.bk.shop4.demo.Domain.Receipt;
+import com.bk.shop4.demo.Exception.ObjectNotFoundException;
 import com.bk.shop4.demo.InnerDomain.DrinkData;
 import com.bk.shop4.demo.InnerDomain.InnerClientTopFiveOrder;
 import com.bk.shop4.demo.InnerDomain.InnerCompleteOrder;
@@ -32,7 +33,6 @@ import com.bk.shop4.demo.Repository.DrinkRepo;
 import com.bk.shop4.demo.Repository.OrderItemRepo;
 import com.bk.shop4.demo.Repository.ReceiptRepo;
 import com.bk.shop4.demo.Service.IClientOrderService;
-import com.bk.shop4.demo.Utility.ObjectNotFoundException;
 
 @Service
 public class ClientOrderServiceImpl implements IClientOrderService {

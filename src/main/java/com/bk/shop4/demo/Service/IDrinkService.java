@@ -24,5 +24,7 @@ public interface IDrinkService {
 	List<InnerConsumedDrink>getMostConsumedDrink();
 	
 	Map<String,Object> GetAllDrinkWithNearestCargo(String uuid);
+	
+	Drink getDrinkByName(String name);
 
 }

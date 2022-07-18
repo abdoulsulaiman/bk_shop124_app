@@ -18,4 +18,6 @@ public interface DrinkRepo extends JpaRepository<Drink, Long> {
 
     List<Drink> findByDeletedStatus(Boolean deletedStatus);
 
+	Drink findByName(String name);
+
 }

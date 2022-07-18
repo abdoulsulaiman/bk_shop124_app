@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 
 import com.bk.shop4.demo.Domain.Cargo;
 import com.bk.shop4.demo.Domain.Client;
+import com.bk.shop4.demo.Exception.ObjectNotFoundException;
 import com.bk.shop4.demo.InnerDomain.InnerClientData;
 import com.bk.shop4.demo.Repository.CargoRepo;
 import com.bk.shop4.demo.Repository.ClientRepo;
 import com.bk.shop4.demo.Service.IClientService;
-import com.bk.shop4.demo.Utility.ObjectNotFoundException;
 
 @Service
 public class ClientServiceImpl implements IClientService {
