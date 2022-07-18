@@ -6,8 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,14 +18,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bk.shop4.demo.Domain.Cargo;
-import com.bk.shop4.demo.Domain.Client;
+
 import com.bk.shop4.demo.InnerDomain.InnerCompleteOrder;
 import com.bk.shop4.demo.InnerDomain.InnerOrderData;
 import com.bk.shop4.demo.Service.ICargoService;
 import com.bk.shop4.demo.Service.IClientOrderService;
 import com.bk.shop4.demo.Service.IClientService;
-import io.swagger.*;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
