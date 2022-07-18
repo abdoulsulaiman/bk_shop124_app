@@ -31,31 +31,31 @@ public class CargoController {
 	
 	@Operation(summary = "Get All Cargo Companies", description = "Endpoints for Retrieving all Cargo Companies")
 	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> all_(HttpServletRequest request) {
+	public ResponseEntity<Object> all_() {
 	
 		return new ResponseEntity<Object>(cargoservice.findAll(), HttpStatus.OK);
 	}
 	@Operation(summary = "Get a Specific Cargo Companies by Id", description = "Endpoints for Retrieving  Cargo Company by ID")
 	@RequestMapping(value = "/{uuid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> getCargoByUuid(HttpServletRequest request, @PathVariable("uuid") String uuid) {
+	public ResponseEntity<Object> getCargoByUuid(@PathVariable("uuid") String uuid) {
 
 		return new ResponseEntity<Object>(cargoservice.findByUuid(uuid), HttpStatus.OK);
 	}
 	@Operation(summary = "Delete a Specific Cargo Companies by Id", description = "Endpoints for Deleting  Cargo Company by ID")
 	@RequestMapping(method = RequestMethod.DELETE,value = "/delete/{uuid}",consumes=MediaType.APPLICATION_JSON_VALUE)
-	 public  ResponseEntity<Object> deleteCargo(HttpServletRequest request, @PathVariable String uuid){
+	 public  ResponseEntity<Object> deleteCargo(@PathVariable String uuid){
 		cargoservice.delete(uuid);
 	    return new ResponseEntity<Object>(HttpStatus.OK);
 	}
 	@Operation(summary = "Save A New Cargo Company", description = "Endpoints for Saving A New  Cargo Company ")
 	@RequestMapping(value = "/save/", method = RequestMethod.POST)
-	public ResponseEntity<Object> RegisterCargo(@RequestBody InnerCargoData params, HttpSession session) throws ParseException {
+	public ResponseEntity<Object> RegisterCargo(@RequestBody InnerCargoData params) throws ParseException {
 
 		return new ResponseEntity<>(cargoservice.CreateInitial(params), HttpStatus.OK);
 	}
 	@Operation(summary = "Get List Drinks Cargo Company Transported by Date Range ", description = "Endpoints for Retrieving List of Drinks Transported by A specific Cargo Company by Date Range ")
 	@RequestMapping(value = "/{uuid}/get_list_of_transported_drinks/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> get_list_of_transported_drinks(HttpServletRequest request, @PathVariable("uuid") String uuid,@RequestBody InnerFrameData params) {
+	public ResponseEntity<Object> get_list_of_transported_drinks(@PathVariable("uuid") String uuid,@RequestBody InnerFrameData params) {
 
 		return new ResponseEntity<Object>(cargoservice.GetDrinksByDateRange(uuid, params.getStartDate(), params.getEndDate()), HttpStatus.OK);
 	}

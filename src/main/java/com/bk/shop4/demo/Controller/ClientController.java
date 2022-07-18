@@ -35,34 +35,34 @@ public class ClientController {
 	
 	@Operation(summary = "Get a list of all clients", description = "Endpoints for Retrieving a list of all clients")
 	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> all_clients(HttpServletRequest request) {
+	public ResponseEntity<Object> all_clients() {
 	
 		return new ResponseEntity<Object>(clientservice.findAll(), HttpStatus.OK);
 	}
 	
 	@Operation(summary = "Get a specific client by ID", description = "Endpoints for Retrieving  a specific client by ID")
 	@RequestMapping(value = "/{uuid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> getClientByUuid(HttpServletRequest request, @PathVariable("uuid") String uuid) {
+	public ResponseEntity<Object> getClientByUuid(@PathVariable("uuid") String uuid) {
 
 		return new ResponseEntity<Object>(clientservice.findByUuid(uuid), HttpStatus.OK);
 	}
 	
 	@Operation(summary = "Deleting a specific client by ID", description = "Endpoints for Deleting  a specific client by ID")
 	@RequestMapping(method = RequestMethod.DELETE,value = "/delete/{uuid}",consumes=MediaType.APPLICATION_JSON_VALUE)
-	 public  ResponseEntity<Object> deleteClient(HttpServletRequest request, @PathVariable String uuid){
+	 public  ResponseEntity<Object> deleteClient(@PathVariable String uuid){
 		clientservice.delete(uuid);
 	    return new ResponseEntity<Object>(HttpStatus.OK);
 	}
 	@Operation(summary = "Create  a new client ", description = "Endpoints for Creating  a new client")
 	@RequestMapping(value = "/save/", method = RequestMethod.POST)
-	public ResponseEntity<Object> RegisterClient(@RequestBody InnerClientData params, HttpSession session) throws ParseException {
+	public ResponseEntity<Object> RegisterClient(@RequestBody InnerClientData params) throws ParseException {
 
 		return new ResponseEntity<>(clientservice.CreateInitial(params), HttpStatus.OK);
 	}
 	
 	@Operation(summary = "Get a list of the 3 closest cargo companies ", description = "Endpoints for Retrieving  a list of the 3 closest cargo companies by A specific Client ")
 	@RequestMapping(value = "/{uuid}/closest_cargoes/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> getClientClosestCargoCompanies(HttpServletRequest request, @PathVariable("uuid") String uuid) {
+	public ResponseEntity<Object> getClientClosestCargoCompanies(@PathVariable("uuid") String uuid) {
 
 		return new ResponseEntity<Object>(clientservice.GetClosestCargo(uuid), HttpStatus.OK);
 	}
